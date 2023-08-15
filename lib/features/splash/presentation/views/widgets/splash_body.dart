@@ -2,6 +2,7 @@ import 'package:bookly/constants.dart';
 import 'package:bookly/features/home/presentaion/views/home_view.dart';
 import 'package:bookly/features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -39,10 +40,10 @@ class _SplashBodyState extends State<SplashBody>
       children: [
         SvgPicture.asset(
           AssestsData.logo,
-          height: 70,
+          height: 50.h,
         ),
-        const SizedBox(
-          height: 10,
+        SizedBox(
+          height: 15.h,
         ),
         SlidingText(slidingAnimation: slidingAnimation),
       ],
