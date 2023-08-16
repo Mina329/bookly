@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomSearchField extends StatelessWidget {
   const CustomSearchField({super.key});
@@ -9,19 +9,32 @@ class CustomSearchField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       decoration: InputDecoration(
-          enabledBorder: _buildOutlinedInputBorder(),
-          focusedBorder: _buildOutlinedInputBorder(),
-          hintText: 'Search',
-          suffixIcon: IconButton(
-            onPressed: () {},
-            icon: const Opacity(
-              opacity: 0.8,
-              child: Icon(
-                FontAwesomeIcons.magnifyingGlass,
-                size: 22,
-              ),
+        enabledBorder: _buildOutlinedInputBorder(),
+        focusedBorder: _buildOutlinedInputBorder(),
+        hintText: 'Search',
+        prefixIcon: IconButton(
+          onPressed: () {
+            GoRouter.of(context).pop();
+          },
+          icon: const Opacity(
+            opacity: 0.8,
+            child: Icon(
+              FontAwesomeIcons.arrowLeft,
+              size: 22,
             ),
-          )),
+          ),
+        ),
+        suffixIcon: IconButton(
+          onPressed: () {},
+          icon: const Opacity(
+            opacity: 0.8,
+            child: Icon(
+              FontAwesomeIcons.magnifyingGlass,
+              size: 22,
+            ),
+          ),
+        ),
+      ),
     );
   }
 
