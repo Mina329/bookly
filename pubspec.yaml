@@ -29,6 +29,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   awesome: ^0.0.3
+  bloc: ^8.1.2
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
   dio: ^5.3.2
