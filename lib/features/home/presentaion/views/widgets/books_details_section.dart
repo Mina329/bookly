@@ -23,7 +23,7 @@ class BooksDetailsSection extends StatelessWidget {
             left: 75.w,
             right: 75.w,
           ),
-          child: const CustomBookItem(),
+          child: const CustomBookItem(imgUrl:  "https://avatars.githubusercontent.com/u/96777964?v=4",),
         ),
         Text(
           "The Jungle Book",
