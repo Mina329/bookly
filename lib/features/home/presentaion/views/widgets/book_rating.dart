@@ -1,4 +1,6 @@
 
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -6,12 +8,16 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/utils/styles.dart';
 
 class BookRating extends StatelessWidget {
-  const BookRating({super.key,  this.mainAxisAlignment = MainAxisAlignment.start, required this.rating, required this.ratingCount});
+  const BookRating({super.key,  this.mainAxisAlignment = MainAxisAlignment.start, });
   final MainAxisAlignment mainAxisAlignment;
-  final double rating;
-  final int ratingCount; 
+  
   @override
   Widget build(BuildContext context) {
+    final random = Random();
+  
+  final randomDecimal = (1 + random.nextDouble() * 4).toStringAsFixed(1);
+  
+  final randomInteger = random.nextInt(3000) + 1;
     return Row(
       mainAxisAlignment: mainAxisAlignment,
       children: [
@@ -23,7 +29,7 @@ class BookRating extends StatelessWidget {
           width: 6.3.w,
         ),
         Text(
-          "$rating",
+          randomDecimal,
           style: Styles.textStyle16,
         ),
         SizedBox(
@@ -32,7 +38,7 @@ class BookRating extends StatelessWidget {
         Opacity(
           opacity: 0.5,
           child: Text(
-            "($ratingCount)",
+            "($randomInteger)",
             style: Styles.textStyle14,
           ),
         )
