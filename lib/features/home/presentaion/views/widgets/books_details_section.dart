@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -23,7 +22,9 @@ class BooksDetailsSection extends StatelessWidget {
             left: 75.w,
             right: 75.w,
           ),
-          child: const CustomBookItem(imgUrl:  "https://avatars.githubusercontent.com/u/96777964?v=4",),
+          child: const CustomBookItem(
+            imgUrl: "https://avatars.githubusercontent.com/u/96777964?v=4",
+          ),
         ),
         Text(
           "The Jungle Book",
@@ -46,6 +47,8 @@ class BooksDetailsSection extends StatelessWidget {
         ),
         const BookRating(
           mainAxisAlignment: MainAxisAlignment.center,
+          rating: 0,
+          ratingCount: 0,
         ),
         SizedBox(
           height: 30.h,

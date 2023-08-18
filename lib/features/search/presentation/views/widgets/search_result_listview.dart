@@ -13,7 +13,8 @@ class SearchResultListView extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) => Padding(
           padding: EdgeInsets.symmetric(vertical: 10.h),
-          child: const BestSellerItem(),
+          // child: const BestSellerItem(),
+          child: Text("FIX Me"),
         ),
         childCount: 10,
       ),
