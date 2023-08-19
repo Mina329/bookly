@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/styles.dart';
-import '../../../data/models/book_model/book_model/book_model.dart';
+import '../../../data/models/book_model/book_model.dart';
 import 'book_rating.dart';
 import 'books_action.dart';
 import 'custom_book_details_appbar.dart';

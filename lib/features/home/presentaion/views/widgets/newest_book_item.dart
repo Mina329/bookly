@@ -1,5 +1,4 @@
 import 'package:bookly/core/utils/app_router.dart';
-import 'package:bookly/features/home/data/models/book_model/book_model/book_model.dart';
 import 'package:bookly/features/home/presentaion/view_model/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly/features/home/presentaion/views/widgets/custom_book_item.dart';
 import 'package:flutter/material.dart';
@@ -9,10 +8,11 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/utils/styles.dart';
+import '../../../data/models/book_model/book_model.dart';
 import 'book_rating.dart';
 
-class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key, required this.bookModel});
+class NewestBookItem extends StatelessWidget {
+  const NewestBookItem({super.key, required this.bookModel});
   final BookModel bookModel;
   @override
   Widget build(BuildContext context) {

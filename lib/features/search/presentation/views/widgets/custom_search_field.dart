@@ -1,4 +1,4 @@
-import 'package:bookly/features/search/presentation/view_model/search_books_cubit/seach_books_cubit.dart';
+import 'package:bookly/features/search/presentation/view_model/search_books_cubit/search_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

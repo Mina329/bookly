@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'best_seller_item.dart';
+import 'newest_book_item.dart';
 
-class BestSellerListView extends StatelessWidget {
-  const BestSellerListView({
+class NewestBookListView extends StatelessWidget {
+  const NewestBookListView({
     super.key,
   });
 
@@ -20,7 +20,7 @@ class BestSellerListView extends StatelessWidget {
             delegate: SliverChildBuilderDelegate(
               (context, index) => Padding(
                 padding: EdgeInsets.symmetric(vertical: 10.h),
-                child: BestSellerItem(
+                child: NewestBookItem(
                   bookModel: state.books[index],
                 ),
               ),

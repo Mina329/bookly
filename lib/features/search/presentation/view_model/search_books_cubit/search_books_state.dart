@@ -1,4 +1,4 @@
-part of 'seach_books_cubit.dart';
+part of 'search_books_cubit.dart';
 
 sealed class SearchBooksState extends Equatable {
   const SearchBooksState();

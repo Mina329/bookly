@@ -3,7 +3,7 @@ import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../home/presentaion/views/widgets/best_seller_item.dart';
+import '../../../../home/presentaion/views/widgets/newest_book_item.dart';
 
 class SearchResultListView extends StatelessWidget {
   const SearchResultListView({super.key, required this.books});
@@ -14,7 +14,7 @@ class SearchResultListView extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) => Padding(
           padding: EdgeInsets.symmetric(vertical: 10.h),
-          child:  BestSellerItem(bookModel: books[index],),
+          child:  NewestBookItem(bookModel: books[index],),
         ),
         childCount: books.length,
       ),
