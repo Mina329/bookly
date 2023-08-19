@@ -1,22 +1,22 @@
 
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../home/presentaion/views/widgets/best_seller_item.dart';
 
 class SearchResultListView extends StatelessWidget {
-  const SearchResultListView({super.key});
-
+  const SearchResultListView({super.key, required this.books});
+  final List<BookModel> books;
   @override
   Widget build(BuildContext context) {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) => Padding(
           padding: EdgeInsets.symmetric(vertical: 10.h),
-          // child: const BestSellerItem(),
-          child: Text("FIX Me"),
+          child:  BestSellerItem(bookModel: books[index],),
         ),
-        childCount: 10,
+        childCount: books.length,
       ),
     );
   }

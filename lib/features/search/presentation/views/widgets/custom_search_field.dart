@@ -1,13 +1,29 @@
+import 'package:bookly/features/search/presentation/view_model/search_books_cubit/seach_books_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
-class CustomSearchField extends StatelessWidget {
+class CustomSearchField extends StatefulWidget {
   const CustomSearchField({super.key});
 
   @override
+  State<CustomSearchField> createState() => _CustomSearchFieldState();
+}
+
+class _CustomSearchFieldState extends State<CustomSearchField> {
+  late TextEditingController _controller;
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController();
+  }
+
+  @override
   Widget build(BuildContext context) {
+
     return TextField(
+      controller: _controller,
       decoration: InputDecoration(
         enabledBorder: _buildOutlinedInputBorder(),
         focusedBorder: _buildOutlinedInputBorder(),
@@ -25,7 +41,12 @@ class CustomSearchField extends StatelessWidget {
           ),
         ),
         suffixIcon: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            BlocProvider.of<SearchBooksCubit>(context).searchText =
+                _controller.text;
+            BlocProvider.of<SearchBooksCubit>(context).fetchSearchBooks();
+            FocusManager.instance.primaryFocus?.unfocus();
+          },
           icon: const Opacity(
             opacity: 0.8,
             child: Icon(
@@ -35,6 +56,11 @@ class CustomSearchField extends StatelessWidget {
           ),
         ),
       ),
+      onSubmitted: (value) {
+        BlocProvider.of<SearchBooksCubit>(context).searchText =
+            _controller.text;
+        BlocProvider.of<SearchBooksCubit>(context).fetchSearchBooks();
+      },
     );
   }
 
