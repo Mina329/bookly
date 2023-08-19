@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,7 +10,9 @@ class CustomButton extends StatelessWidget {
       required this.textColor,
       required this.backgroundColor,
       this.fontSize,
-      required this.text});
+      required this.text,
+      this.onPressed});
+  final VoidCallback? onPressed;
   final String text;
   final BorderRadius borderRadius;
   final Color textColor;
@@ -22,7 +23,7 @@ class CustomButton extends StatelessWidget {
     return SizedBox(
       height: 48.h,
       child: TextButton(
-        onPressed: () {},
+        onPressed: onPressed,
         style: TextButton.styleFrom(
           backgroundColor: backgroundColor,
           shape: RoundedRectangleBorder(
@@ -31,8 +32,10 @@ class CustomButton extends StatelessWidget {
         ),
         child: Text(
           text,
-          style:
-              Styles.textStyle18.copyWith(color: textColor, fontSize: fontSize,fontWeight: FontWeight.w900),
+          style: Styles.textStyle18.copyWith(
+              color: textColor,
+              fontSize: fontSize,
+              fontWeight: FontWeight.w900),
         ),
       ),
     );

@@ -1,20 +1,22 @@
+import 'package:bookly/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../core/widgets/custom_button.dart';
 
 class BooksAction extends StatelessWidget {
-  const BooksAction({super.key});
-
+  const BooksAction({super.key, required this.bookModel});
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: 8.w),
-      child: const Row(
+      padding: EdgeInsets.symmetric(horizontal: 8.w),
+      child: Row(
         children: [
-          Expanded(
+          const Expanded(
             child: CustomButton(
-               text: "Free",
+              text: "Free",
               backgroundColor: Colors.white,
               borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(16),
@@ -25,9 +27,26 @@ class BooksAction extends StatelessWidget {
           ),
           Expanded(
             child: CustomButton(
-              text: "Free preview",
-              backgroundColor: Color(0xffEF8262),
-              borderRadius: BorderRadius.only(
+              onPressed: () async {
+                final Uri url =
+                    Uri.parse(bookModel.volumeInfo.previewLink ?? "");
+
+                if (await canLaunchUrl(url)) {
+                  await launchUrl(url);
+                } else {
+                  if (context.mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text(
+                            "Something went wrong. Please, Try again later."),
+                      ),
+                    );
+                  }
+                }
+              },
+              text: "Preview",
+              backgroundColor: const Color(0xffEF8262),
+              borderRadius: const BorderRadius.only(
                 bottomRight: Radius.circular(16),
                 topRight: Radius.circular(16),
               ),

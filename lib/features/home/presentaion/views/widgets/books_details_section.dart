@@ -18,12 +18,13 @@ class BooksDetailsSection extends StatefulWidget {
 }
 
 class _BooksDetailsSectionState extends State<BooksDetailsSection> {
-  late BookModel bookModel ;
-@override
+  late BookModel bookModel;
+  @override
   void initState() {
     super.initState();
     bookModel = BlocProvider.of<SimilarBooksCubit>(context).bookModel;
   }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,7 +37,7 @@ class _BooksDetailsSectionState extends State<BooksDetailsSection> {
             left: 75.w,
             right: 75.w,
           ),
-          child:  CustomBookItem(
+          child: CustomBookItem(
             imgUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? "",
           ),
         ),
@@ -55,6 +56,7 @@ class _BooksDetailsSectionState extends State<BooksDetailsSection> {
             style: Styles.textStyle18.copyWith(
               fontStyle: FontStyle.italic,
             ),
+            textAlign: TextAlign.center,
           ),
         ),
         SizedBox(
@@ -66,7 +68,9 @@ class _BooksDetailsSectionState extends State<BooksDetailsSection> {
         SizedBox(
           height: 30.h,
         ),
-        const BooksAction(),
+        BooksAction(
+          bookModel: bookModel,
+        ),
       ],
     );
   }
