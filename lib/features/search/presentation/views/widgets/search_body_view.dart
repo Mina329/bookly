@@ -3,6 +3,7 @@ import 'package:bookly/core/utils/service_locator.dart';
 import 'package:bookly/features/search/data/repos/search_repo_impl.dart';
 import 'package:bookly/features/search/presentation/view_model/search_books_cubit/search_books_cubit.dart';
 import 'package:bookly/features/search/presentation/views/widgets/search_result_listview.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -44,9 +45,9 @@ class SearchBodyView extends StatelessWidget {
                       bottom: 20.h,
                     ),
                     child: Text(
-                      "Search Result",
+                      "searchResult",
                       style: Styles.textStyle18,
-                    ),
+                    ).tr(),
                   ),
                 );
               }
@@ -78,10 +79,10 @@ class SearchBodyView extends StatelessWidget {
                     child: Opacity(
                       opacity: 0.5,
                       child: Text(
-                        "Please, Type What are you searching for.",
+                        "searchQuery",
                         style: Styles.textStyle14,
                         textAlign: TextAlign.center,
-                      ),
+                      ).tr(),
                     ),
                   ),
                 );

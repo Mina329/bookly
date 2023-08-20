@@ -1,6 +1,7 @@
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/features/home/presentaion/view_model/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly/features/home/presentaion/views/widgets/custom_book_item.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,7 +24,7 @@ class NewestBookItem extends StatelessWidget {
         GoRouter.of(context).push(AppRouter.kBookDetailsView);
       },
       child: SizedBox(
-        height: 90.h,
+        height: 100.h,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20.w),
           child: Row(
@@ -41,9 +42,9 @@ class NewestBookItem extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.5,
                       child: Text(
                         bookModel.volumeInfo.title ?? "",
+                        maxLines:1,
                         style: Styles.textStyle20
                             .copyWith(fontFamily: kGTSectraFine),
-                        maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
@@ -57,7 +58,7 @@ class NewestBookItem extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("Free", style: Styles.textStyle20),
+                        Text("free", style: Styles.textStyle20).tr(),
                         const BookRating(),
                       ],
                     )

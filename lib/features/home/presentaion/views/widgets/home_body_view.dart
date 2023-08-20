@@ -1,6 +1,7 @@
 import 'package:bookly/core/utils/styles.dart';
 import 'package:bookly/features/home/presentaion/views/widgets/custom_appbar.dart';
 import 'package:bookly/features/home/presentaion/views/widgets/featured_listview.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'newest_book_listview.dart';
@@ -30,9 +31,9 @@ class HomeBodyView extends StatelessWidget {
                   bottom: 20.h,
                 ),
                 child: Text(
-                  "Newest Books",
+                  "newestBooks",
                   style: Styles.textStyle18,
-                ),
+                ).tr(),
               ),
             ],
           ),
