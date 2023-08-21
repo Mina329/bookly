@@ -1,9 +1,12 @@
+import 'package:bookly/core/cache/cache_helper.dart';
+import 'package:bookly/core/cache/cache_keys_values.dart';
 import 'package:bookly/features/search/presentation/view_model/search_books_cubit/search_books_cubit.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../../../core/l10n/generated/l10n.dart';
 
 class CustomSearchField extends StatefulWidget {
   const CustomSearchField({super.key});
@@ -23,13 +26,13 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
   @override
   Widget build(BuildContext context) {
     Icon getBackArrowIcon() {
-      if (context.locale.languageCode == "ar") {
+      if (CacheData.getData(key: CacheKeys.kLANGUAGE) == CacheValues.ARABIC) {
         return const Icon(
           FontAwesomeIcons.arrowRight,
           size: 22,
         );
       }
-      return const Icon(
+       return const Icon(
         FontAwesomeIcons.arrowLeft,
         size: 22,
       );
@@ -40,7 +43,7 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
       decoration: InputDecoration(
         enabledBorder: _buildOutlinedInputBorder(),
         focusedBorder: _buildOutlinedInputBorder(),
-        hintText: 'search'.tr(),
+        hintText: S.of(context).search,
         prefixIcon: IconButton(
           onPressed: () {
             GoRouter.of(context).pop();

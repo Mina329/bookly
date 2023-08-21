@@ -1,5 +1,7 @@
+import 'package:bookly/core/cache/cache_helper.dart';
+import 'package:bookly/core/cache/cache_keys_values.dart';
+import 'package:bookly/core/l10n/generated/l10n.dart';
 import 'package:bookly/features/home/data/models/book_model/book_model.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -12,9 +14,9 @@ class BooksAction extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Widget getfreeCustomButtom() {
-      if (context.locale.languageCode == "ar") {
+      if (CacheData.getData(key: CacheKeys.kLANGUAGE) == CacheValues.ARABIC) {
         return CustomButton(
-          text: "free".tr(),
+          text: S.of(context).free,
           backgroundColor: Colors.white,
           borderRadius: const BorderRadius.only(
             bottomRight: Radius.circular(16),
@@ -24,7 +26,7 @@ class BooksAction extends StatelessWidget {
         );
       }
       return CustomButton(
-        text: "free".tr(),
+        text: S.of(context).free,
         backgroundColor: Colors.white,
         borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(16),
@@ -35,7 +37,7 @@ class BooksAction extends StatelessWidget {
     }
 
     Widget getpreviewCustomButtom() {
-      if (context.locale.languageCode == "ar") {
+      if (CacheData.getData(key: CacheKeys.kLANGUAGE) == CacheValues.ARABIC) {
         return CustomButton(
           onPressed: () async {
             final Uri url = Uri.parse(bookModel.volumeInfo.previewLink ?? "");
@@ -53,7 +55,7 @@ class BooksAction extends StatelessWidget {
               }
             }
           },
-          text: "preview".tr(),
+          text: S.of(context).preview,
           backgroundColor: const Color(0xffEF8262),
           borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(16),
@@ -80,7 +82,7 @@ class BooksAction extends StatelessWidget {
             }
           }
         },
-        text: "preview".tr(),
+        text: S.of(context).preview,
         backgroundColor: const Color(0xffEF8262),
         borderRadius: const BorderRadius.only(
           bottomRight: Radius.circular(16),

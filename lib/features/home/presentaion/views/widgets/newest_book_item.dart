@@ -1,7 +1,7 @@
+import 'package:bookly/core/l10n/generated/l10n.dart';
 import 'package:bookly/core/utils/app_router.dart';
 import 'package:bookly/features/home/presentaion/view_model/similar_books_cubit/similar_books_cubit.dart';
 import 'package:bookly/features/home/presentaion/views/widgets/custom_book_item.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -58,7 +58,7 @@ class NewestBookItem extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("free", style: Styles.textStyle20).tr(),
+                        Text(S.of(context).free, style: Styles.textStyle20),
                         const BookRating(),
                       ],
                     )
