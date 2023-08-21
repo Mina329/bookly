@@ -34,7 +34,7 @@ class HomeBodyView extends StatelessWidget {
                     CacheValues.ARABIC) {
                   await CacheData.setData(
                       key: CacheKeys.kLANGUAGE, value: CacheValues.ARABIC);
-                  Restart.restartApp(webOrigin: "/homeView");
+                  Restart.restartApp();
                 }
               },
             ),
